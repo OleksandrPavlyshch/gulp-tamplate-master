@@ -1,1 +1,1 @@
-##Her will be loaded bower files
+##Here will be loaded bower files
