@@ -2,4 +2,6 @@
 	"title": "template master"
 	, "description": "My base gulp Tamplate"
 	, "meta_image": "https://assets-cdn.github.com/images/modules/open_graph/github-octocat.png"
+	, "card": "summary"
+	, "autor": "me"
 }
