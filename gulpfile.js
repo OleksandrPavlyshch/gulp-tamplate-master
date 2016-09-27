@@ -95,24 +95,24 @@ gulp.task('iconfont', function () {
 });
 
 
-gulp.task('vendor-js', function() {
-	return gulp.src(mainBowerFiles('**/*.js'))
-	.pipe(plumber())
-	.pipe(uglify())
-	.pipe(gulp.dest(dirs.build.vendorJs));
-});
+// gulp.task('vendor-js', function() {
+// 	return gulp.src(mainBowerFiles('**/*.js'))
+// 	.pipe(plumber())
+// 	.pipe(uglify())
+// 	.pipe(gulp.dest(dirs.build.vendorJs));
+// });
 
-gulp.task('vendor-css', function() {
-	return gulp.src(mainBowerFiles('**/*.css'))
-	.pipe(plumber())
-	.pipe(gulp.dest(dirs.build.vendorCss));
-});
+// gulp.task('vendor-css', function() {
+// 	return gulp.src(mainBowerFiles('**/*.css'))
+// 	.pipe(plumber())
+// 	.pipe(gulp.dest(dirs.build.vendorCss));
+// });
 
-//fonts
-gulp.task('fonts', function() {
-	gulp.src(dirs.source.fonts)
-	.pipe(gulp.dest(dirs.build.fonts));
-});
+// //fonts
+// gulp.task('fonts', function() {
+// 	gulp.src(dirs.source.fonts)
+// 	.pipe(gulp.dest(dirs.build.fonts));
+// });
 
 //jade
 gulp.task('templates', function() {
