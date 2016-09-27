@@ -1,5 +1,7 @@
 'use strict';
 
+require('require-dir')('./gulp-tasks/', {recurse: true});
+
 var gulp = require('gulp')
 	, mainBowerFiles = require('main-bower-files')
 	, postcss = require('gulp-postcss')
@@ -51,19 +53,19 @@ var gulp = require('gulp')
 	};
 
 
-gulp.task('favicon', function() {
-	gulp.src(dirs.source.favicon)
-	.pipe(plumber())
-	.pipe(gulp.dest(dirs.build.build));
-});
+// gulp.task('favicon', function() {
+// 	gulp.src(dirs.source.favicon)
+// 	.pipe(plumber())
+// 	.pipe(gulp.dest(dirs.build.build));
+// });
 
-gulp.task('connect', function() {
-	connect.server({
-		root: dirs.build.build
-		, livereload: true
-		, port: 8888
-	});
-});
+// gulp.task('connect', function() {
+// 	connect.server({
+// 		root: dirs.build.build
+// 		, livereload: true
+// 		, port: 8888
+// 	});
+// });
 
 
 // icon font
@@ -220,4 +222,5 @@ gulp.task('watch', function(){
 	gulp.watch(dirs.source.helpers + '*.*', ['iconfont']);
 });
 
-gulp.task('default', ['iconfont', 'favicon', 'fonts', 'vendor-js', 'vendor-css', 'js', 'sprite', 'images', 'templates', 'sass', 'connect', 'watch']);
+
+// gulp.task('default', ['iconfont', 'favicon', 'fonts', 'vendor-js', 'vendor-css', 'js', 'sprite', 'images', 'templates', 'sass', 'connect', 'watch']);
