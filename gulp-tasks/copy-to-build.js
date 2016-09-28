@@ -4,6 +4,7 @@ var gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, mainBowerFiles = require('main-bower-files')
 	, uglify = require('gulp-uglify')
+	, filter = require('gulp-filter')
 	, dirs = require('./dirs');
 
 // favicon
@@ -31,5 +32,6 @@ gulp.task('vendor-css', function() {
 // fonts
 gulp.task('fonts', function() {
 	gulp.src(dirs.source.fonts)
+	.pipe(filter(['**/*.ttf', '**/*.eot', '**/*.woff', '**/*.woff2']))
 	.pipe(gulp.dest(dirs.build.fonts));
 });
