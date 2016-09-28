@@ -3,7 +3,6 @@
 require('require-dir')('./gulp-tasks/', {recurse: true});
 
 var gulp = require('gulp')
-	, mainBowerFiles = require('main-bower-files')
 	, postcss = require('gulp-postcss')
 	, sass = require('gulp-sass')
 	, sassGlob = require('gulp-sass-glob')
@@ -52,22 +51,6 @@ var gulp = require('gulp')
 		}
 	};
 
-
-// gulp.task('favicon', function() {
-// 	gulp.src(dirs.source.favicon)
-// 	.pipe(plumber())
-// 	.pipe(gulp.dest(dirs.build.build));
-// });
-
-// gulp.task('connect', function() {
-// 	connect.server({
-// 		root: dirs.build.build
-// 		, livereload: true
-// 		, port: 8888
-// 	});
-// });
-
-
 // icon font
 var fontname = 'svgfont';
 
@@ -93,26 +76,6 @@ gulp.task('iconfont', function () {
 	}))
 	.pipe(gulp.dest(dirs.source.fontsFolder));
 });
-
-
-// gulp.task('vendor-js', function() {
-// 	return gulp.src(mainBowerFiles('**/*.js'))
-// 	.pipe(plumber())
-// 	.pipe(uglify())
-// 	.pipe(gulp.dest(dirs.build.vendorJs));
-// });
-
-// gulp.task('vendor-css', function() {
-// 	return gulp.src(mainBowerFiles('**/*.css'))
-// 	.pipe(plumber())
-// 	.pipe(gulp.dest(dirs.build.vendorCss));
-// });
-
-// //fonts
-// gulp.task('fonts', function() {
-// 	gulp.src(dirs.source.fonts)
-// 	.pipe(gulp.dest(dirs.build.fonts));
-// });
 
 //jade
 gulp.task('templates', function() {
@@ -221,6 +184,3 @@ gulp.task('watch', function(){
 	gulp.watch(dirs.source.icons, ['sprite']);
 	gulp.watch(dirs.source.helpers + '*.*', ['iconfont']);
 });
-
-
-// gulp.task('default', ['iconfont', 'favicon', 'fonts', 'vendor-js', 'vendor-css', 'js', 'sprite', 'images', 'templates', 'sass', 'connect', 'watch']);
