@@ -19,8 +19,8 @@ var gulp = require('gulp')
 	, uglify = require('gulp-uglify')
 	, concat = require('gulp-concat')
 	, fs = require('fs')
-	, iconfont = require("gulp-iconfont")
-	, iconfontCss = require('gulp-iconfont-css')
+	// , iconfont = require("gulp-iconfont")
+	// , iconfontCss = require('gulp-iconfont-css')
 	, dirs = {
 		'source': {
 			'vendorJs': './source/js/vendor/'
@@ -52,30 +52,30 @@ var gulp = require('gulp')
 	};
 
 // icon font
-var fontname = 'svgfont';
+// var fontname = 'svgfont';
 
-gulp.task('iconfont', function () {
-	return gulp.src([dirs.source.svgFontsAssets])
-	.pipe(plumber())
-	.pipe(iconfontCss({
-		fontName: fontname
-		, path: 'source/helpers/_svgfont.sass'
-		, targetPath: '../../' + dirs.source.sassFolder + '_svgfont.sass'
-		, fontPath: '../fonts/'
-		, cssClass: 'icon'
-	}))
-	.pipe(plumber())
-	.pipe(iconfont({
-		fontName: fontname
-		, prependUnicode: true
-		, formats: ['ttf', 'eot', 'woff', 'woff2']
-		, normalize: true
-		, fontHeight: 1001
-		, fontStyle: 'normal'
-		, fontWeight: 'normal'
-	}))
-	.pipe(gulp.dest(dirs.source.fontsFolder));
-});
+// gulp.task('iconfont', function () {
+// 	return gulp.src([dirs.source.svgFontsAssets])
+// 	.pipe(plumber())
+// 	.pipe(iconfontCss({
+// 		fontName: fontname
+// 		, path: 'source/helpers/_svgfont.sass'
+// 		, targetPath: '../../' + dirs.source.sassFolder + '_svgfont.sass'
+// 		, fontPath: '../fonts/'
+// 		, cssClass: 'icon'
+// 	}))
+// 	.pipe(plumber())
+// 	.pipe(iconfont({
+// 		fontName: fontname
+// 		, prependUnicode: true
+// 		, formats: ['ttf', 'eot', 'woff', 'woff2']
+// 		, normalize: true
+// 		, fontHeight: 1001
+// 		, fontStyle: 'normal'
+// 		, fontWeight: 'normal'
+// 	}))
+// 	.pipe(gulp.dest(dirs.source.fontsFolder));
+// });
 
 //jade
 gulp.task('templates', function() {
