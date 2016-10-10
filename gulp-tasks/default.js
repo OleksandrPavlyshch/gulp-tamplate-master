@@ -2,4 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('default', ['iconfont', 'favicon', 'fonts', 'vendor-js', 'vendor-css', 'js', 'sprite', 'images', 'templates', 'sass', 'connect', 'watch']);
+gulp.task('default', ['iconfont', 'favicon', 'fonts', 'vendor-js', 'vendor-css', 'scripts', 'sprite', 'images', 'templates', 'sass', 'connect', 'watch']);
