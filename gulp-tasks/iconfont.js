@@ -20,7 +20,6 @@ gulp.task('iconfont', function () {
 		, fontPath: '../fonts/'
 		, cssClass: 'icon'
 	}))
-	.pipe(plumber())
 	.pipe(iconfont({
 		fontName: fontname
 		, prependUnicode: true
