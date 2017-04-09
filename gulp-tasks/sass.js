@@ -8,14 +8,14 @@ var gulp = require('gulp')
 	, autoprefixer = require('autoprefixer')
 	, mqpacker = require("css-mqpacker")
 	, sourcemaps = require('gulp-sourcemaps')
-	, connect = require('gulp-connect')
-	, dirs = require('./dirs');
+	, gulpif = require('gulp-if')
+	, configs = require('./configs');
 
 //sass
 gulp.task('sass', function () {
 
 	var processors = [
-		autoprefixer({browsers: ['last 1 version'], cascade: false}),
+		autoprefixer({browsers: ['last 2 version', 'Android 4'], cascade: false}),
 		mqpacker({
 			sort: function (a, b) {
 				a = a.replace(/\D/g,'');
@@ -25,15 +25,19 @@ gulp.task('sass', function () {
 		})
 	];
 
-	return gulp.src(dirs.source.sass)
+
+	return gulp.src(configs.source.sass)
 		.pipe(plumber())
-		.pipe(sourcemaps.init())
+		.pipe(gulpif(configs.environment === 'dev', sourcemaps.init()))
 		.pipe(sassGlob())
-		.pipe(sass({
-			outputStyle: 'compact'
-		}).on('error', sass.logError))
+		.pipe(
+			gulpif(
+				configs.environment === 'dev',
+				sass({outputStyle: 'compact'}).on('error', sass.logError),
+				sass({outputStyle: 'compressed'}).on('error', sass.logError)
+				)
+			)
 		.pipe(postcss(processors))
-		// .pipe(sourcemaps.write())
-		.pipe(gulp.dest(dirs.build.css))
-		.pipe(connect.reload());
+		.pipe(gulpif(configs.environment === 'dev', sourcemaps.write()))
+		.pipe(gulp.dest(configs.build.css));
 });

@@ -2,21 +2,17 @@
 
 var gulp = require('gulp')
 	, plumber = require('gulp-plumber')
-	, sourcemaps = require('gulp-sourcemaps')
-	, plumber = require('gulp-plumber')
-	, connect = require('gulp-connect')
 	, uglify = require('gulp-uglify')
+	, gulpif = require('gulp-if')
 	, concat = require('gulp-concat')
-	, dirs = require('./dirs');
+	, configs = require('./configs')
+	, jsFileName = "index.js";
 
 //scripts
 gulp.task('scripts', function() {
-	return gulp.src(dirs.source.js)
+	return gulp.src(configs.source.js)
 	.pipe(plumber())
-	.pipe(sourcemaps.init())
-	.pipe(uglify())
-	.pipe(concat("index.js"))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest(dirs.build.js))
-	.pipe(connect.reload());
+	.pipe(gulpif(configs.environment !== 'dev', uglify()))
+	.pipe(concat(jsFileName))
+	.pipe(gulp.dest(configs.build.js));
 });

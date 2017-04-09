@@ -1,13 +1,13 @@
 'use strict';
 
 var gulp = require('gulp')
-	, dirs = require('./dirs');
+	, configs = require('./configs');
 
 gulp.task('watch', function(){
-	gulp.watch(dirs.source.jade_watch, ['templates']);
-	gulp.watch(dirs.source.sass, ['sass']);
-	gulp.watch(dirs.source.js, ['scripts']);
-	gulp.watch(dirs.source.img, ['images']);
-	gulp.watch(dirs.source.icons, ['sprite']);
-	gulp.watch(dirs.source.helpers + '*.*', ['iconfont']);
+	gulp.watch(configs.source.pug_watch, ['templates']);
+	gulp.watch(configs.source.sass, ['sass']);
+	gulp.watch(configs.source.js, ['scripts']);
+	gulp.watch(configs.source.img, ['images']);
+	gulp.watch(configs.source.icons, ['sprite']);
+	gulp.watch(configs.source.helpers + '*.*', ['iconfont']);
 });

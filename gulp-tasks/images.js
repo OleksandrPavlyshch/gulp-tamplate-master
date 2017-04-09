@@ -5,11 +5,11 @@ var gulp = require('gulp')
 	, imagemin = require('gulp-imagemin')
 	, pngquant = require('imagemin-pngquant')
 	, gulpif = require('gulp-if')
-	, dirs = require('./dirs');
+	, configs = require('./configs');
 
 //images
 gulp.task('images', function() {
-	return gulp.src(dirs.source.img)
+	return gulp.src(configs.source.img)
 		.pipe(plumber())
 		.pipe(gulpif(/[.](png|jpeg|jpg|svg)$/, imagemin({
 			progressive: true
@@ -18,5 +18,5 @@ gulp.task('images', function() {
 			}]
 			, use: [pngquant()]
 		})))
-		.pipe(gulp.dest(dirs.build.img));
+		.pipe(gulp.dest(configs.build.img));
 });

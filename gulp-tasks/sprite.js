@@ -3,11 +3,11 @@
 var gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, spritesmith = require('gulp.spritesmith')
-	, dirs = require('./dirs');
+	, configs = require('./configs');
 
 // sprite
 gulp.task('sprite', function() {
-	var spriteData = gulp.src(dirs.source.icons)
+	var spriteData = gulp.src(configs.source.icons)
 	.pipe(plumber())
 	.pipe(spritesmith({
 		imgName: 'icons.png'
@@ -15,10 +15,10 @@ gulp.task('sprite', function() {
 		, imgPath: '../img/icons.png'
 		, cssFormat: 'sass'
 		, padding: 4
-		, cssTemplate: dirs.source.cssTemplate
+		, cssTemplate: configs.source.cssTemplate
 	}));
 	spriteData.img
-		.pipe(gulp.dest(dirs.build.img));
+		.pipe(gulp.dest(configs.build.img));
 	spriteData.css
-		.pipe(gulp.dest(dirs.source.sassFolder));
+		.pipe(gulp.dest(configs.source.sassFolder));
 });

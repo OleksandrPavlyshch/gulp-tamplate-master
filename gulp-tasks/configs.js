@@ -6,13 +6,12 @@ var soursePath = './source/'
 		'source': {
 			'vendorJs': soursePath + 'js/vendor/'
 			, 'vendorCss': soursePath + 'css/vendor/'
-			, 'favicon': soursePath + 'favicon/*.ico'
 			, 'js': soursePath + 'elements/**/*.js'
 			, 'fonts': soursePath + 'fonts/**/*'
 			, 'fontsFolder': soursePath + 'fonts/'
-			, 'jade': soursePath + 'pages/*.jade'
-			, 'jadeJson': soursePath + 'pages/jsons/index.json'
-			, 'jade_watch': [soursePath + 'pages/**/*.jade', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.jade', soursePath + 'elements/**/*.json']
+			, 'pug': soursePath + 'pages/*.pug'
+			, 'pugJson': soursePath + 'pages/jsons/index.json'
+			, 'pug_watch': [soursePath + 'pages/**/*.pug', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
 			, 'sass': [soursePath + 'sass/**/*.*', soursePath + 'elements/**/*.sass']
 			, 'sassFolder': soursePath + 'sass/'
 			, 'img': soursePath + 'img/*.*'
@@ -20,6 +19,7 @@ var soursePath = './source/'
 			, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'
 			, 'helpers': soursePath + 'helpers/'
 			, 'svgFontsAssets': soursePath + 'svg-font-assets/*.svg'
+			, 'favicon': soursePath + 'favicon/**/*.*'
 		}
 		, 'build': {
 			'vendorJs': buildPath + '/js/vendor/'
@@ -29,7 +29,13 @@ var soursePath = './source/'
 			, 'fonts': buildPath + '/fonts/'
 			, 'build': buildPath
 			, 'img': buildPath + '/img/'
+			, 'favicon': buildPath
 		}
-	};
+	}
+	, environment = 'dev';
+
 
 module.exports = dirs;
+module.exports.environment = environment;
+module.exports.soursePath = soursePath;
+module.exports.buildPath = buildPath;
