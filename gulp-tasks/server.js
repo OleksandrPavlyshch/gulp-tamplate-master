@@ -13,7 +13,7 @@ gulp.task('server', function() {
 		, files: [
 			configs.buildPath + '**/*.html',
 			configs.build.css + '**/*.css',
-			configs.build.images + '**/*'
+			configs.build.img + '**/*'
 		]
 		, logLevel: 'info' // 'debug', 'info', 'silent', 'warn'
 		, logFileChanges: true
