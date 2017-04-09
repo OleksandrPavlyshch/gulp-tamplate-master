@@ -16,13 +16,13 @@ var onlyPNGFilter = filter(['**/*.png'], {restore: true});
 		.pipe(plumber())
 		.pipe(onlyPNGFilter)
 		.pipe(favicons({
-			appName: 'my nemplate'
-			, appDescription: 'my nemplate'
-			, developerName: 'my nemplate'
-			, developerURL: 'my nemplate'
+			appName: 'my template'
+			, appDescription: 'my template'
+			, developerName: 'my template'
+			, developerURL: 'my template'
 			, background: 'transpatent'
 			, path: '/'
-			, url: 'my nemplate'
+			, url: 'my template'
 			, display: 'standalone'
 			, orientation: 'portrait'
 			, start_url: '/?homescreen=1'
