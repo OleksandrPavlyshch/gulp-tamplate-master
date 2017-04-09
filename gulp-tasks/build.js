@@ -11,5 +11,5 @@ gulp.task('setProdEnv', function () {
 	);
 
 gulp.task('build', function () {
-	runSequence('iconfont', 'favicons', 'fonts', 'scripts', 'sprite', 'images', 'sass','templates');
+	runSequence(['iconfont', 'favicons', 'fonts', 'scripts', 'sprite', 'images'], 'sass','templates');
 });
