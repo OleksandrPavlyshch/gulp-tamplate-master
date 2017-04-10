@@ -10,6 +10,7 @@ var soursePath = './source/'
 			, 'fonts': soursePath + 'fonts/**/*'
 			, 'fontsFolder': soursePath + 'fonts/'
 			, 'pug': soursePath + 'pages/*.pug'
+			, 'pugLayout': soursePath + 'pages/layout/'
 			, 'pugJson': soursePath + 'pages/jsons/index.json'
 			, 'pug_watch': [soursePath + 'pages/**/*.pug', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
 			, 'sass': [soursePath + 'sass/**/*.*', soursePath + 'elements/**/*.sass']

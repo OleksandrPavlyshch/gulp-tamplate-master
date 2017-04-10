@@ -5,6 +5,6 @@ var gulp = require('gulp')
 
 gulp.task('default', function(){
 	runSequence(
-		['iconfont', 'favicons', 'sprite', 'fonts', 'scripts', 'images']
+		['iconfont', 'favicons', 'sprite', 'fonts', 'scripts', 'images', 'bower']
 		, 'sass','templates', 'server', 'watch');
 });
