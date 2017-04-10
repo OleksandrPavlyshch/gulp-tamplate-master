@@ -20,7 +20,7 @@ var soursePath = './source/'
 			, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'
 			, 'helpers': soursePath + 'helpers/'
 			, 'svgFontsAssets': soursePath + 'svg-font-assets/*.svg'
-			, 'favicon': soursePath + 'favicon/**/*.*'
+			, 'favicon': soursePath + 'favicon/**/*.png'
 		}
 		, 'build': {
 			'vendorJs': buildPath + '/js/vendor/'
