@@ -3,4 +3,4 @@
 /build
 source/fonts/svgfont**
 source/sass/_svgfont**
-source/elements/favicons/**
+source/elements/favicons/
