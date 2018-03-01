@@ -1,9 +1,7 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, configs = require('./configs');
 
-gulp.task('watch', function(){
+gulp.task('watch', () => {
 	gulp.watch(configs.source.pug_watch, ['templates']);
 	gulp.watch(configs.source.sass, ['sass']);
 	gulp.watch(configs.source.js, ['scripts']);

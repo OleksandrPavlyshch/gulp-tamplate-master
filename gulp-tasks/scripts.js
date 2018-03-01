@@ -1,6 +1,4 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, uglify = require('gulp-uglify')
 	, gulpif = require('gulp-if')
@@ -9,10 +7,8 @@ var gulp = require('gulp')
 	, jsFileName = "index.js";
 
 //scripts
-gulp.task('scripts', function() {
-	return gulp.src(configs.source.js)
-	.pipe(plumber())
-	.pipe(gulpif(configs.environment !== 'dev', uglify()))
-	.pipe(concat(jsFileName))
-	.pipe(gulp.dest(configs.build.js));
-});
+gulp.task('scripts', () => gulp.src(configs.source.js)
+.pipe(plumber())
+.pipe(gulpif(configs.environment !== 'dev', uglify()))
+.pipe(concat(jsFileName))
+.pipe(gulp.dest(configs.build.js)));

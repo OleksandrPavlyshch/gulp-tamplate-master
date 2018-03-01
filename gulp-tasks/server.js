@@ -1,10 +1,9 @@
-'use strict';
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, browserSync = require('browser-sync').create('server')
 	, configs = require('./configs');
 
 // server
-gulp.task('server', function() {
+gulp.task('server', () => {
 	browserSync.init({
 		server: {
 			baseDir: configs.buildPath

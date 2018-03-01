@@ -1,12 +1,10 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, spritesmith = require('gulp.spritesmith')
 	, configs = require('./configs');
 
 // sprite
-gulp.task('sprite', function() {
+gulp.task('sprite', () => {
 	var spriteData = gulp.src(configs.source.icons)
 	.pipe(plumber())
 	.pipe(spritesmith({

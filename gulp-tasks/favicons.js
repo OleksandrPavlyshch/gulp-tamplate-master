@@ -1,16 +1,14 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, favicons = require('gulp-favicons')
 	, plumber = require('gulp-plumber')
 	, configs = require('./configs')
 	, filter = require('gulp-filter')
 	, htmlName = 'favicons';
 
-gulp.task('favicons', function () {
+gulp.task('favicons', () => {
 
-var onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: true});
-var onlyPNGFilter = filter(['**/*.png'], {restore: true});
+const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: true})
+	, onlyPNGFilter = filter(['**/*.png'], {restore: true});
 
 	return gulp.src(configs.source.favicon)
 		.pipe(plumber())

@@ -1,4 +1,4 @@
-var soursePath = './source/'
+const soursePath = './source/'
 	, buildPath = './build/'
 	, dirs = {
 		'source': {
@@ -32,7 +32,6 @@ var soursePath = './source/'
 		}
 	}
 	, environment = 'dev';
-
 
 module.exports = dirs;
 module.exports.environment = environment;

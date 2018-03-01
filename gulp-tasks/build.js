@@ -1,15 +1,12 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, configs = require('./configs')
 	, runSequence = require('run-sequence');
 
-
-gulp.task('setProdEnv', function () {
+gulp.task('setProdEnv', () => {
 	configs.environment = "prod";
 		}
 	);
 
-gulp.task('build', function () {
+gulp.task('build', () => {
 	runSequence(['iconfont', 'favicons', 'fonts', 'scripts', 'sprite', 'images'], 'sass','templates');
 });

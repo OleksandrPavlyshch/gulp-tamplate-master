@@ -1,5 +1,4 @@
-"use strict";
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, mainBowerFiles = require('main-bower-files')
 	, plumber = require('gulp-plumber')
 	, uglify = require('gulp-uglify')
@@ -9,18 +8,15 @@ var gulp = require('gulp')
 	, wiredep = require('wiredep').stream
 	, configs = require('./configs');
 
-gulp.task('bower', function() {
+gulp.task('bower', () => {
 	runSequence('install-bower-packeges', 'vendor-js', 'vendor-css', 'wiredep');
 });
 
 // install bower packeges
-gulp.task('install-bower-packeges', function() {
-	return bower();
-
-});
+gulp.task('install-bower-packeges', () => bower());
 
 //add gulp dependency ot html
-gulp.task('wiredep', function () {
+gulp.task('wiredep', () => {
 	gulp.src(configs.source.pugLayout + '*.pug')
 		.pipe(wiredep({
 			devDependencies: true
@@ -32,14 +28,14 @@ gulp.task('wiredep', function () {
 						, css: /link\(.*href=['"]([^'"]+)/gi
 					}
 					, replace: {
-						js: function(filePath){
-								var pathArray = filePath.split('/')
-									, fileName = pathArray[pathArray.length - 1];
-								return 'script(src="/js/vendor/' + fileName + '")';
-							}
-						, css: function(filePath){
-								var pathArray = filePath.split('/')
-									, fileName = pathArray[pathArray.length - 1];
+						js(filePath) {
+							const pathArray = filePath.split('/');
+							const fileName = pathArray[pathArray.length - 1];
+							return 'script(src="/js/vendor/' + fileName + '")';
+						}
+						, css(filePath) {
+								const pathArray = filePath.split('/');
+								const fileName = pathArray[pathArray.length - 1];
 								return 'link(rel=\'stylesheet\', href="css/vendor/' + fileName + '")';
 							}
 					}
@@ -50,16 +46,12 @@ gulp.task('wiredep', function () {
 });
 
 // vendor-js
-gulp.task('vendor-js', function() {
-	return gulp.src(mainBowerFiles('**/*.js'))
-	.pipe(plumber())
-	.pipe(uglify())
-	.pipe(gulp.dest(configs.build.vendorJs));
-});
+gulp.task('vendor-js', () => gulp.src(mainBowerFiles('**/*.js'))
+.pipe(plumber())
+.pipe(uglify())
+.pipe(gulp.dest(configs.build.vendorJs)));
 
 // vendor-js
-gulp.task('vendor-css', function() {
-	return gulp.src(mainBowerFiles('**/*.css'))
-	.pipe(cleanCSS({compatibility: 'ie8'}))
-	.pipe(gulp.dest(configs.build.vendorCss));
-});
+gulp.task('vendor-css', () => gulp.src(mainBowerFiles('**/*.css'))
+.pipe(cleanCSS({compatibility: 'ie8'}))
+.pipe(gulp.dest(configs.build.vendorCss)));

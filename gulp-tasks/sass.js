@@ -1,6 +1,4 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, postcss = require('gulp-postcss')
 	, sass = require('gulp-sass')
@@ -12,19 +10,18 @@ var gulp = require('gulp')
 	, configs = require('./configs');
 
 //sass
-gulp.task('sass', function () {
+gulp.task('sass', () => {
 
 	var processors = [
 		autoprefixer({browsers: ['last 2 version', 'Android 4'], cascade: false}),
 		mqpacker({
-			sort: function (a, b) {
+			sort(a, b) {
 				a = a.replace(/\D/g,'');
 				b = b.replace(/\D/g,'');
 				return b-a;
 			}
 		})
 	];
-
 
 	return gulp.src(configs.source.sass)
 		.pipe(plumber())

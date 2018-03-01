@@ -1,9 +1,7 @@
-'use strict';
-
-var gulp = require('gulp')
+const gulp = require('gulp')
 	, runSequence = require('run-sequence');
 
-gulp.task('default', function(){
+gulp.task('default', () => {
 	runSequence(
 		['iconfont', /*'favicons', 'sprite',*/ 'fonts', 'scripts', 'images', 'bower']
 		, 'sass','templates', 'server', 'watch');
