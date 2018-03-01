@@ -1,5 +1,3 @@
-'use strict';
-
 var soursePath = './source/'
 	, buildPath = './build/'
 	, dirs = {
@@ -13,7 +11,7 @@ var soursePath = './source/'
 			, 'pugLayout': soursePath + 'pages/layout/'
 			, 'pugJson': soursePath + 'pages/jsons/index.json'
 			, 'pug_watch': [soursePath + 'pages/**/*.pug', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
-			, 'sass': [soursePath + 'sass/**/*.*', soursePath + 'elements/**/*.sass']
+			, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.+(sass|scss)']
 			, 'sassFolder': soursePath + 'sass/'
 			, 'img': soursePath + 'img/*.*'
 			, 'icons': soursePath + 'img/icons/*.png'
