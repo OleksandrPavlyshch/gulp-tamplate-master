@@ -1,7 +1,7 @@
-const gulp = require('gulp')
+const configs = require('../configs')
+	, gulp = require('gulp')
 	, favicons = require('gulp-favicons')
 	, plumber = require('gulp-plumber')
-	, configs = require('./configs')
 	, filter = require('gulp-filter')
 	, htmlName = 'favicons'
 	, fs = require('fs')
@@ -21,7 +21,7 @@ const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: tru
 			, developerName: appName
 			, developerURL: appName
 			, background: 'transpatent'
-			, path: '/'
+			, path: '/favicon'
 			, url: appName
 			, display: 'standalone'
 			, orientation: 'portrait'
@@ -38,5 +38,5 @@ const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: tru
 		.pipe(gulp.dest(configs.build.favicon))
 		.pipe(onlyFaviconFilter.restore)
 		.pipe(filter('**/*.html'))
-		.pipe(gulp.dest(configs.soursePath + 'elements/' + htmlName + '/'));
+		.pipe(gulp.dest(configs.source.root + '/elements/' + htmlName + '/'));
 });
