@@ -3,7 +3,9 @@ const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, configs = require('./configs')
 	, filter = require('gulp-filter')
-	, htmlName = 'favicons';
+	, htmlName = 'favicons'
+	, fs = require('fs')
+	, appName = JSON.parse(fs.readFileSync('./package.json')).name;
 
 gulp.task('favicons', () => {
 
@@ -14,13 +16,13 @@ const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: tru
 		.pipe(plumber())
 		.pipe(onlyPNGFilter)
 		.pipe(favicons({
-			appName: 'my template'
-			, appDescription: 'my template'
-			, developerName: 'my template'
-			, developerURL: 'my template'
+			appName: appName
+			, appDescription: appName
+			, developerName: appName
+			, developerURL: appName
 			, background: 'transpatent'
 			, path: '/'
-			, url: 'my template'
+			, url: appName
 			, display: 'standalone'
 			, orientation: 'portrait'
 			, start_url: '/?homescreen=1'
