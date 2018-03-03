@@ -1,8 +1,11 @@
-const soursePath = './source/'
+const util = require('gulp-util')
+	, production = util.env.production || util.env.prod || false
+	, soursePath = './source/'
 	, buildPath = './build/'
-	, dirs = {
+	, configs = {
 		'source': {
-			'vendorJs': soursePath + 'js/vendor/'
+			'root': soursePath
+			, 'vendorJs': soursePath + 'js/vendor/'
 			, 'vendorCss': soursePath + 'css/vendor/'
 			, 'js': soursePath + 'elements/**/*.js'
 			, 'fonts': soursePath + 'fonts/**/*'
@@ -21,34 +24,31 @@ const soursePath = './source/'
 			, 'favicon': soursePath + 'favicon/**/*.png'
 		}
 		, 'build': {
-			'vendorJs': buildPath + '/js/vendor/'
+			'root': buildPath
+			, 'vendorJs': buildPath + '/js/vendor/'
 			, 'vendorCss': buildPath + '/css/vendor/'
 			, 'css': buildPath + '/css/'
 			, 'js': buildPath + '/js/'
 			, 'fonts': buildPath + '/fonts/'
 			, 'build': buildPath
 			, 'img': buildPath + '/img/'
-			, 'favicon': buildPath
+			, 'favicon': buildPath + '/favicon'
 		}
-	}
-	, setEnv = (env) => {
-			if (typeof env !== 'string') return;
-			this.env = env;
-			this.production = env === 'production';
-			process.env.NODE_ENV = env;
-	}
-	, logEnv = () => {
-			util.log(
-					'Environment:',
-					util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
-			);
-	}
-	, errorHandler = require('./util/handle-errors')
-	, environment = 'dev';
+		, setEnv: (env) => {
+				if (typeof env !== 'string') return;
+				this.env = env;
+				this.production = env === 'production';
+				process.env.NODE_ENV = env;
+		}
+		, logEnv: () => {
+				util.log(
+						'Environment:',
+						util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
+				);
+		}
+		, errorHandler: require('./util/handle-errors')
+};
 
+configs.setEnv(production ? 'production' : 'development');
 
-
-module.exports = dirs;
-module.exports.environment = environment;
-module.exports.soursePath = soursePath;
-module.exports.buildPath = buildPath;
+module.exports = configs;
