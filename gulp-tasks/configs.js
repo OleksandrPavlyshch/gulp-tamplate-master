@@ -11,7 +11,7 @@ const soursePath = './source/'
 			, 'pugLayout': soursePath + 'pages/layout/'
 			, 'pugJson': soursePath + 'pages/jsons/index.json'
 			, 'pug_watch': [soursePath + 'pages/**/*.pug', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
-			, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.+(sass|scss)']
+			, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.{sass,scss}']
 			, 'sassFolder': soursePath + 'sass/'
 			, 'img': soursePath + 'img/*.*'
 			, 'icons': soursePath + 'img/icons/*.png'
@@ -31,7 +31,22 @@ const soursePath = './source/'
 			, 'favicon': buildPath
 		}
 	}
+	, setEnv = (env) => {
+			if (typeof env !== 'string') return;
+			this.env = env;
+			this.production = env === 'production';
+			process.env.NODE_ENV = env;
+	}
+	, logEnv = () => {
+			util.log(
+					'Environment:',
+					util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
+			);
+	}
+	, errorHandler = require('./util/handle-errors')
 	, environment = 'dev';
+
+
 
 module.exports = dirs;
 module.exports.environment = environment;
