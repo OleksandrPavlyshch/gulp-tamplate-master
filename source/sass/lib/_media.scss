@@ -51,7 +51,10 @@
 // --- screen ----------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 
-@mixin ie()
+$units: 1px !default;
+
+
+@mixin ie-screen()
 {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
   {
@@ -59,7 +62,12 @@
   }
 }
 
-$units: 1px !default;
+@mixin edge-screen()
+{
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
 
 @mixin screen($res-min, $res-max)
 {
