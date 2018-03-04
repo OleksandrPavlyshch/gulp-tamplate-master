@@ -6,7 +6,7 @@ const gulp = require('gulp')
 	, runSequence = require('run-sequence')
 	, cleanCSS = require('gulp-clean-css')
 	, wiredep = require('wiredep').stream
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 gulp.task('bower', () => {
 	runSequence('install-bower-packeges', 'vendor-js', 'vendor-css', 'wiredep');

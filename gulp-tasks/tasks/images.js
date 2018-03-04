@@ -3,7 +3,7 @@ const gulp = require('gulp')
 	, imagemin = require('gulp-imagemin')
 	, pngquant = require('imagemin-pngquant')
 	, gulpif = require('gulp-if')
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 //images
 gulp.task('images', () => gulp.src(configs.source.img)
