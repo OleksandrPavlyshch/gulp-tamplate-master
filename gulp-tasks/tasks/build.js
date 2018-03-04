@@ -10,5 +10,5 @@ gulp.task('setProdEnv', () => {
 gulp.task('build', () => {
 	configs.setEnv('production');
 	configs.logEnv();
-	runSequence(['iconfont', 'favicons', 'copy', 'scripts', 'sprite', 'images'], 'sass','templates');
+	runSequence(['svg-font', 'favicons', 'copy', 'scripts', 'icon-sprite', 'images'], 'sass','templates');
 });

@@ -1,10 +1,10 @@
 const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, spritesmith = require('gulp.spritesmith')
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 // sprite
-gulp.task('sprite', () => {
+gulp.task('icon-sprite', () => {
 	var spriteData = gulp.src(configs.source.icons)
 	.pipe(plumber())
 	.pipe(spritesmith({

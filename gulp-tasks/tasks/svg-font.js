@@ -2,18 +2,18 @@ const gulp = require('gulp')
 	, plumber = require('gulp-plumber')
 	, iconfont = require("gulp-iconfont")
 	, iconfontCss = require('gulp-iconfont-css')
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 
 // icon font
 const fontname = 'svgfont';
 
-gulp.task('iconfont', () => gulp.src([configs.source.svgFontsAssets])
+gulp.task('svg-font', () => gulp.src([configs.source.svgFontsAssets])
 	.pipe(plumber())
 	.pipe(iconfontCss({
 		fontName: fontname
 		, path: 'source/helpers/_svgfont.sass'
-		, targetPath: `../../${configs.source.sassFolder}_svgfont.sass`
+		, targetPath: '../../' + configs.source.sassFolder + '_svgfont.sass'
 		, fontPath: '../fonts/'
 		, cssClass: 'icon'
 	}))
