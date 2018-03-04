@@ -6,6 +6,6 @@ gulp.task('default', () => {
 	configs.setEnv('development');
 	configs.logEnv();
 	runSequence(
-		['svg-font', /*'favicons', 'icon-sprite',*/ 'copy', 'scripts', 'images', 'bower']
+		['svg-font', /*'favicons', 'icon-sprite',*/ 'copy', 'scripts', 'images', 'bower', 'list-pages']
 		, 'sass','templates', 'server', 'watch');
 });

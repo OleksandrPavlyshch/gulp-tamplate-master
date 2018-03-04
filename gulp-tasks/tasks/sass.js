@@ -53,3 +53,7 @@ gulp.task('sass', () => {
 		.pipe(gulpif(!configs.production, sourcemaps.write('./')))
 		.pipe(gulp.dest(configs.build.css));
 });
+
+gulp.task('sass:watch', () => {
+	gulp.watch(configs.source.sass, ['sass']);
+});

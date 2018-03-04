@@ -20,3 +20,7 @@ gulp.task('icon-sprite', () => {
 	spriteData.css
 		.pipe(gulp.dest(configs.source.sassFolder));
 });
+
+gulp.task('icon-sprite:watch', () => {
+	gulp.watch(configs.source.icons, ['icon-sprite']);
+});

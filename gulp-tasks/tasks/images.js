@@ -6,7 +6,8 @@ const gulp = require('gulp')
 	, configs = require('../configs');
 
 //images
-gulp.task('images', () => gulp.src(configs.source.img)
+gulp.task('images', () => {
+	return gulp.src(configs.source.img)
 		.pipe(plumber())
 		.pipe(gulpif(/[.](png|jpeg|jpg|svg)$/, imagemin({
 				progressive: true
@@ -15,4 +16,9 @@ gulp.task('images', () => gulp.src(configs.source.img)
 				}]
 				, use: [pngquant()]
 		})))
-		.pipe(gulp.dest(configs.build.img)));
+		.pipe(gulp.dest(configs.build.img));
+});
+
+gulp.task('images:watch', () => {
+	gulp.watch(configs.source.img, ['images']);
+});

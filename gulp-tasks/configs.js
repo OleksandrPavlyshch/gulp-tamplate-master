@@ -10,6 +10,7 @@ let util = require('gulp-util')
 				, 'vendorJs': soursePath + 'js/vendor/'
 				, 'vendorCss': soursePath + 'css/vendor/'
 				, 'js': soursePath + 'elements/**/*.js'
+				, 'pagelist': soursePath + 'index.yaml'
 				, 'fonts': soursePath + 'fonts/**/*'
 				, 'fontsFolder': soursePath + 'fonts/'
 				, 'pug': soursePath + 'pages/*.pug'

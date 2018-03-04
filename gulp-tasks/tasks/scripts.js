@@ -7,8 +7,14 @@ const gulp = require('gulp')
 	, jsFileName = "index.js";
 
 //scripts
-gulp.task('scripts', () => gulp.src(configs.source.js)
-.pipe(plumber())
-.pipe(gulpif(configs.production, uglify()))
-.pipe(concat(jsFileName))
-.pipe(gulp.dest(configs.build.js)));
+gulp.task('scripts', () => {
+	return gulp.src(configs.source.js)
+		.pipe(plumber())
+		.pipe(gulpif(configs.production, uglify()))
+		.pipe(concat(jsFileName))
+		.pipe(gulp.dest(configs.build.js));
+});
+
+gulp.task('scripts:watch', () => {
+	gulp.watch(configs.source.js, ['scripts']);
+});

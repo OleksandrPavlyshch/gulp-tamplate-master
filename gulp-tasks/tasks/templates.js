@@ -16,3 +16,7 @@ gulp.task('templates', () => {
 	}))
 	.pipe(gulp.dest(configs.build.root));
 });
+
+gulp.task('templates:watch', () => {
+	gulp.watch(configs.source.pug_watch, ['templates']);
+});

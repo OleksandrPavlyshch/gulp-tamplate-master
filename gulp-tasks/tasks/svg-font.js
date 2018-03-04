@@ -8,22 +8,29 @@ const gulp = require('gulp')
 // icon font
 const fontname = 'svgfont';
 
-gulp.task('svg-font', () => gulp.src([configs.source.svgFontsAssets])
-	.pipe(plumber())
-	.pipe(iconfontCss({
-		fontName: fontname
-		, path: 'source/helpers/_svgfont.sass'
-		, targetPath: '../../' + configs.source.sassFolder + '_svgfont.sass'
-		, fontPath: '../fonts/'
-		, cssClass: 'icon'
-	}))
-	.pipe(iconfont({
-		fontName: fontname
-		, prependUnicode: true
-		, formats: ['ttf', 'eot', 'woff', 'woff2']
-		, normalize: true
-		, fontHeight: 1001
-		, fontStyle: 'normal'
-		, fontWeight: 'normal'
-	}))
-	.pipe(gulp.dest(configs.source.fontsFolder)));
+gulp.task('svg-font', () => {
+	return gulp.src([configs.source.svgFontsAssets])
+		.pipe(plumber())
+		.pipe(iconfontCss({
+			fontName: fontname
+			, path: 'source/helpers/_svgfont.sass'
+			, targetPath: '../../' + configs.source.sassFolder + '_svgfont.sass'
+			, fontPath: '../fonts/'
+			, cssClass: 'icon'
+		}))
+		.pipe(iconfont({
+			fontName: fontname
+			, prependUnicode: true
+			, formats: ['ttf', 'eot', 'woff', 'woff2']
+			, normalize: true
+			, fontHeight: 1001
+			, fontStyle: 'normal'
+			, fontWeight: 'normal'
+		}))
+		.pipe(gulp.dest(configs.source.fontsFolder));
+});
+
+
+gulp.task('svg-font:watch', () => {
+	gulp.watch(configs.source.helpers + '*.*', ['svg-font']);
+});
