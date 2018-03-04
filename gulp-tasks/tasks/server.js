@@ -1,16 +1,16 @@
 const gulp = require('gulp')
 	, browserSync = require('browser-sync').create('server')
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 // server
 gulp.task('server', () => {
 	browserSync.init({
 		server: {
-			baseDir: configs.buildPath
+			baseDir: configs.build.root
 			, directory: false
 		}
 		, files: [
-			configs.buildPath + '**/*.html',
+			configs.build.root + '**/*.html',
 			configs.build.css + '**/*.css',
 			configs.build.js + '**/*.js',
 			configs.build.img + '**/*'
