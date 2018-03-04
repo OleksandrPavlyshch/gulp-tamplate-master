@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-	, configs = require('./configs');
+	, configs = require('../configs');
 
 gulp.task('watch', () => {
 	gulp.watch(configs.source.pug_watch, ['templates']);
