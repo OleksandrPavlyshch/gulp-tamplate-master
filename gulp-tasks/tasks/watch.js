@@ -6,8 +6,9 @@ gulp.task('watch',
 		, 'sass:watch'
 		, 'scripts:watch'
 		, 'images:watch'
+		// , 'svg-font:watch'
 		// , 'icon-sprite:watch'
-		, 'svg-font:watch'
+		, 'sprite:svg:watch'
 		, 'list-pages:watch'
 	]
 );

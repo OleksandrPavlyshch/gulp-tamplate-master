@@ -21,6 +21,7 @@ let util = require('gulp-util')
 				, 'sassFolder': soursePath + 'sass/'
 				, 'img': soursePath + 'img/*.*'
 				, 'icons': soursePath + 'img/icons/*.png'
+				, 'iconsSvg': soursePath + 'svg-icons/'
 				, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'
 				, 'helpers': soursePath + 'helpers/'
 				, 'svgFontsAssets': soursePath + 'svg-font-assets/*.svg'
