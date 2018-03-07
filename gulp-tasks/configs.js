@@ -11,6 +11,7 @@ let util = require('gulp-util')
 				, 'vendorCss': soursePath + 'css/vendor/'
 				, 'js': soursePath + 'elements/**/*.js'
 				, 'pagelist': soursePath + 'index.yaml'
+				, 'favicon': soursePath + 'favicon/**/*.png'
 				, 'fonts': soursePath + 'fonts/**/*'
 				, 'fontsFolder': soursePath + 'fonts/'
 				, 'pug': soursePath + 'pages/*.pug'
@@ -25,7 +26,6 @@ let util = require('gulp-util')
 				, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'
 				, 'helpers': soursePath + 'helpers/'
 				, 'svgFontsAssets': soursePath + 'svg-font-assets/*.svg'
-				, 'favicon': soursePath + 'favicon/**/*.png'
 		}
 		, 'build': {
 				'root': buildPath
