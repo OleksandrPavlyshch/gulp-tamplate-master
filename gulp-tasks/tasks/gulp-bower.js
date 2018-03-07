@@ -24,7 +24,7 @@ let getFilename = (path) => {
 //add gulp dependency ot html
 gulp.task('wiredep', () => {
 	// gulp.src(configs.source.pugLayout + '*.pug')
-	gulp.src(configs.source.nunjucks + '*.html')
+	gulp.src(configs.source.nunjucks + '/**/*.html')
 		.pipe(wiredep({
 			devDependencies: true
 			, fileTypes: {
@@ -37,6 +37,7 @@ gulp.task('wiredep', () => {
 					replace: {
 						js(filePath) {
 							let fileName = getFilename(filePath);
+							console.log(fileName);
 							return '<script src="js/vendor/' + fileName + '"></script>';
 						}
 						, css(filePath) {
@@ -45,26 +46,26 @@ gulp.task('wiredep', () => {
 						}
 					}
 				}
-				, pug: {
-					block: /(([ \t]*)\/\/-?\s*bower:*(\S*))(\n|\r|.)*?(\/\/-?\s*endbower)/gi
-					, detect: {
-						js: /script\(.*src=['"]([^'"]+)/gi
-						, css: /link\(.*href=['"]([^'"]+)/gi
-					}
-					, replace: {
-						js(filePath) {
-							let fileName = getFilename(filePath);
-							return 'script(src="js/vendor/' + fileName + '")';
-						}
-						, css(filePath) {
-								let fileName = getFilename(filePath);
-								return 'link(rel=\'stylesheet\', href="css/vendor/' + fileName + '")';
-						}
-					}
-				}
+				// , pug: {
+				// 	block: /(([ \t]*)\/\/-?\s*bower:*(\S*))(\n|\r|.)*?(\/\/-?\s*endbower)/gi
+				// 	, detect: {
+				// 		js: /script\(.*src=['"]([^'"]+)/gi
+				// 		, css: /link\(.*href=['"]([^'"]+)/gi
+				// 	}
+				// 	, replace: {
+				// 		js(filePath) {
+				// 			let fileName = getFilename(filePath);
+				// 			return 'script(src="js/vendor/' + fileName + '")';
+				// 		}
+				// 		, css(filePath) {
+				// 				let fileName = getFilename(filePath);
+				// 				return 'link(rel=\'stylesheet\', href="css/vendor/' + fileName + '")';
+				// 		}
+				// 	}
+				// }
 			}
 		}))
-		.pipe(gulp.dest(configs.source.pugLayout));
+		.pipe(gulp.dest(configs.source.nunjucks));
 });
 
 // vendor-js
