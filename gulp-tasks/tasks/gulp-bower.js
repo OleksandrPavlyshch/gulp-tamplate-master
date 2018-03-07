@@ -15,13 +15,37 @@ gulp.task('bower', () => {
 // install bower packeges
 gulp.task('install-bower-packeges', () => bower());
 
+let getFilename = (path) => {
+	let pathArray = path.split('/');
+	let fileName = pathArray[pathArray.length - 1];
+	return fileName;
+};
+
 //add gulp dependency ot html
 gulp.task('wiredep', () => {
-	gulp.src(configs.source.pugLayout + '*.pug')
+	// gulp.src(configs.source.pugLayout + '*.pug')
+	gulp.src(configs.source.nunjucks + '*.html')
 		.pipe(wiredep({
 			devDependencies: true
 			, fileTypes: {
-				pug: {
+				html: {
+					block: /(([ \t]*)<!--\s*bower:*(\S*)\s*-->)(\n|\r|.)*?(<!--\s*endbower\s*-->)/gi,
+					detect: {
+						js: /<script.*src=['"]([^'"]+)/gi,
+						css: /<link.*href=['"]([^'"]+)/gi
+					},
+					replace: {
+						js(filePath) {
+							let fileName = getFilename(filePath);
+							return '<script src="js/vendor/' + fileName + '"></script>';
+						}
+						, css(filePath) {
+								let fileName = getFilename(filePath);
+								return '<link rel="stylesheet" href="css/vendor/' + fileName + '" />';
+						}
+					}
+				}
+				, pug: {
 					block: /(([ \t]*)\/\/-?\s*bower:*(\S*))(\n|\r|.)*?(\/\/-?\s*endbower)/gi
 					, detect: {
 						js: /script\(.*src=['"]([^'"]+)/gi
@@ -29,15 +53,13 @@ gulp.task('wiredep', () => {
 					}
 					, replace: {
 						js(filePath) {
-							const pathArray = filePath.split('/');
-							const fileName = pathArray[pathArray.length - 1];
-							return 'script(src="/js/vendor/' + fileName + '")';
+							let fileName = getFilename(filePath);
+							return 'script(src="js/vendor/' + fileName + '")';
 						}
 						, css(filePath) {
-								const pathArray = filePath.split('/');
-								const fileName = pathArray[pathArray.length - 1];
+								let fileName = getFilename(filePath);
 								return 'link(rel=\'stylesheet\', href="css/vendor/' + fileName + '")';
-							}
+						}
 					}
 				}
 			}

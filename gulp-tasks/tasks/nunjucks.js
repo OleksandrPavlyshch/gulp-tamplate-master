@@ -19,7 +19,7 @@ function renderHtml(onlyChanged){
 		.pipe(plumber({
 			errorHandler: configs.errorHandler
 		}))
-		.pipe(gulpif(onlyChanged, changed(configs.dest.html)))
+		.pipe(gulpif(onlyChanged, changed(configs.build.root)))
 		.pipe(frontMatter({ property: 'data' }))
 		.pipe(nunjucksRender({
 			PRODUCTION: configs.production,
