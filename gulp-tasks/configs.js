@@ -7,20 +7,28 @@ let util = require('gulp-util')
 		, production: production
 		, 'source': {
 				'root': soursePath
+				//vendors
 				, 'vendorJs': soursePath + 'js/vendor/'
 				, 'vendorCss': soursePath + 'css/vendor/'
+				// js
 				, 'js': soursePath + 'elements/**/*.js'
 				, 'pagelist': soursePath + 'index.yaml'
 				, 'favicon': soursePath + 'favicon/**/*.png'
 				, 'fonts': soursePath + 'fonts/**/*'
 				, 'fontsFolder': soursePath + 'fonts/'
-				, 'pug': soursePath + 'pages/*.pug'
-				, 'pugLayout': soursePath + 'pages/layout/'
-				, 'pugJson': soursePath + 'pages/jsons/index.json'
-				, 'pug_watch': [soursePath + 'pages/**/*.pug', soursePath + 'pages/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
+				//Pug
+				, 'pug': soursePath + 'pug-templates/*.pug'
+				, 'pugLayout': soursePath + 'pug-templates/layout/'
+				, 'pugJson': soursePath + 'pug-templates/jsons/index.json'
+				, 'pug_watch': [soursePath + 'pug-templates/**/*.pug', soursePath + 'pug-templates/**/*.json', soursePath + 'elements/**/*.pug', soursePath + 'elements/**/*.json']
+				//Nunjucks
+				,'nunjucks': soursePath + 'nunjucks-templates'
+				//Sass
 				, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.(sass|scss)']
 				, 'sassFolder': soursePath + 'sass/'
+				//images
 				, 'img': soursePath + 'img/*.*'
+				//icons
 				, 'icons': soursePath + 'img/icons/*.png'
 				, 'iconsSvg': soursePath + 'svg-icons/'
 				, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'

@@ -7,5 +7,5 @@ gulp.task('default', () => {
 	configs.logEnv();
 	runSequence(
 		[/*'svg-font', 'favicons', 'icon-sprite',*/ 'sprite:svg', 'copy', 'scripts', 'images', 'bower', 'list-pages']
-		, 'sass','templates', 'server', 'watch');
+		, 'sass', 'nunjucks',/* 'pug',*/ 'server', 'watch');
 });

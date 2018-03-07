@@ -5,5 +5,5 @@ const gulp = require('gulp')
 gulp.task('build', () => {
 	configs.setEnv('production');
 	configs.logEnv();
-	runSequence(['favicons', 'copy', 'scripts', /*'svg-font', 'icon-sprite', */ 'sprite:svg', 'images'], 'sass','templates');
+	runSequence(['favicons', 'copy', 'scripts', /*'svg-font', 'icon-sprite', */ 'sprite:svg', 'images'], 'sass', 'nunjucks'/*,'pug'*/);
 });

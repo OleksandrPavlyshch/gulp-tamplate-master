@@ -2,7 +2,8 @@ const gulp = require('gulp');
 
 gulp.task('watch',
 	[
-		'templates:watch'
+		'nunjucks:watch'
+		// ,'pug:watch'
 		, 'sass:watch'
 		, 'scripts:watch'
 		, 'images:watch'
