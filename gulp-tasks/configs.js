@@ -15,7 +15,6 @@ let util = require('gulp-util')
 				, 'pagelist': soursePath + 'index.yaml'
 				, 'favicon': soursePath + 'favicon/**/*.png'
 				, 'fonts': soursePath + 'fonts/**/*'
-				, 'fontsFolder': soursePath + 'fonts/'
 				//Pug
 				, 'pug': soursePath + 'pug-templates/*.pug'
 				, 'pugLayout': soursePath + 'pug-templates/layout/'
@@ -42,7 +41,6 @@ let util = require('gulp-util')
 				, 'css': buildPath + '/css/'
 				, 'js': buildPath + '/js/'
 				, 'fonts': buildPath + '/fonts/'
-				, 'build': buildPath
 				, 'img': buildPath + '/img/'
 				, 'favicon': buildPath + '/favicon'
 		}

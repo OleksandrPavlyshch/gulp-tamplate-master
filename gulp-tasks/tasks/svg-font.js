@@ -27,7 +27,7 @@ gulp.task('svg-font', () => {
 			, fontStyle: 'normal'
 			, fontWeight: 'normal'
 		}))
-		.pipe(gulp.dest(configs.source.fontsFolder));
+		.pipe(gulp.dest(configs.build.fonts));
 });
 
 
