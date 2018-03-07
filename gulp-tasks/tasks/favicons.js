@@ -29,7 +29,7 @@ const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: tru
 			, version: 1.0
 			, logging: false
 			, online: false
-			, html: htmlName + '.html'
+			, html: '_' + htmlName + '.html'
 			, pipeHTML: true
 			, replace: true
 		}))
@@ -38,5 +38,5 @@ const onlyFaviconFilter = filter(['**', '!' + htmlName + '.html'], {restore: tru
 		.pipe(gulp.dest(configs.build.favicon))
 		.pipe(onlyFaviconFilter.restore)
 		.pipe(filter('**/*.html'))
-		.pipe(gulp.dest(configs.source.root + '/elements/' + htmlName + '/'));
+		.pipe(gulp.dest(configs.source.root + '/nunjucks-templates/partials/'));
 });

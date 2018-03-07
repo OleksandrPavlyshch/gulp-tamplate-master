@@ -2,6 +2,7 @@
 /node_modules
 /build
 source/fonts/svgfont**
+source/nunjucks-templates/partials/_favicons.html
 source/sass/_svgfont**
 source/sass/_sprite-svg**
 source/elements/favicons/favicons**
