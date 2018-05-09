@@ -15,7 +15,7 @@ function renderHtml(onlyChanged){
 	});
 
 	return gulp
-		.src([configs.source.nunjucks + '/**/[^_]*.html'])
+		.src([configs.source.nunjucks + '/[^_]*.html'])
 		.pipe(plumber({
 			errorHandler: configs.errorHandler
 		}))
@@ -23,7 +23,7 @@ function renderHtml(onlyChanged){
 		.pipe(frontMatter({ property: 'data' }))
 		.pipe(nunjucksRender({
 			PRODUCTION: configs.production,
-			path: [configs.source.nunjucks]
+			path: [configs.source.root]
 		}))
 		.pipe(prettify({
 			indent_size: 2,
@@ -48,6 +48,6 @@ gulp.task('nunjucks:watch', function() {
 	], ['nunjucks:changed']);
 
 	gulp.watch([
-		configs.source.nunjucks + '/**/_*.html'
+		configs.source.nunjucks + '/_*.html', configs.source.root + 'elements/**/*.html'
 	], ['nunjucks']);
 });

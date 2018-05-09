@@ -8,8 +8,8 @@ let util = require('gulp-util')
 		, 'source': {
 				'root': soursePath
 				//vendors
-				, 'vendorJs': soursePath + 'js/vendor/'
-				, 'vendorCss': soursePath + 'css/vendor/'
+				, 'vendorJs': soursePath + 'vendor/js/'
+				, 'vendorCss': soursePath + 'vendor/css/'
 				// js
 				, 'js': soursePath + 'elements/**/*.js'
 				, 'pagelist': soursePath + 'index.yaml'
@@ -23,15 +23,12 @@ let util = require('gulp-util')
 				//Nunjucks
 				,'nunjucks': soursePath + 'nunjucks-templates'
 				//Sass
-				, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.(sass|scss)']
+				, 'sass': [soursePath + 'sass/**/*.+(sass|scss)', soursePath + 'elements/**/*.+(sass|scss)']
 				, 'sassFolder': soursePath + 'sass/'
 				//images
 				, 'img': soursePath + 'img/*.*'
 				//icons
-				, 'icons': soursePath + 'img/icons/*.png'
 				, 'iconsSvg': soursePath + 'svg-icons/'
-				, 'cssTemplate': soursePath + 'helpers/sprite.template.mustache'
-				, 'helpers': soursePath + 'helpers/'
 				, 'svgFontsAssets': soursePath + 'svg-font-assets/*.svg'
 		}
 		, 'build': {
