@@ -17,20 +17,17 @@
     {% include "../partials/_favicons.html" %}
   </head>
   {% if page_class %}<body class="{{ page_class }}">{% else %}<body>{% endif %}
-    
-    {# {% include "../../elements/header/index.html" %} #}
+
     <!-- BEGIN content -->
     <main class="content">
         {% block content %}{% endblock %}
     </main>
     <!-- END content -->
 
-    {# {% include "../../elements/footer/index.html" %} #}
-    {# {% include "../../elements/preloader/index.html" %} #}
     <!-- BEGIN scripts -->
     <!-- bower:js -->
     <!-- endbower -->
-
+    <script type="text/javascript" src="js/app.js"></script>
     <!-- END scripts -->
 
   </body>
